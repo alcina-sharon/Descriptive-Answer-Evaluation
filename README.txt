@@ -1,5 +1,7 @@
 Answer_Evaluation README
 ==================
+The website is created using Pyramid Framework.
+The backend processing of the answers is done using NLP.
 
 Getting Started
 ---------------
