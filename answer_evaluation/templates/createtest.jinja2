@@ -1,0 +1,47 @@
+{% extends "navigate.jinja2" %}
+{% block content %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" >Teacher</a>
+
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href = "/createtest">Create Test</a></li>
+       <li><a href = "/veiwresult">View Results</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+    <li><a><span class="glyphicon glyphicon-user"></span>{{session['username']}}</a></li>
+      <li><a href="/first"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+
+    </ul>
+  </div>
+</nav>
+
+<form action="/nxt" method="POST">
+<div class='container' >
+ <table align="center">
+
+
+  <tr>
+ <td style="color:black">ENTER TEST NAME</td>
+ <td><input type="text" name="test_name" value="" placeholder="Enter test name" required></td>
+ </tr>
+
+ <tr>
+ <td style="color:black">ENTER NO.OF QUESTIONS</td>
+ </tr>
+ <tr>
+ <!--<td style="color:black">MULTIPLE CHOICE QUESTIONS</td>
+ <td><input type="number" name="mcq_no" value="" placeholder="Enter no.of questions" required></td>-->
+ <td style="color:black">DESCRIPTIVE TYPE QUESTIONS</td>
+ <td><input type="number" name="desc_no" value="" placeholder="Enter no.of questions" required></td>
+</tr>
+<tr>
+<td><input type="submit" value="save" class="btn btn-primary" ></td>
+<!--on click submit button -->
+<td><input type="reset" value="reset" class="btn btn-primary" ></td>
+</tr>
+</table>
+</form>
+{% endblock content %}

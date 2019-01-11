@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<form action="/save" method="POST">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" >Teacher</a>
+
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href = "/createtest">Create Test</a></li>
+       <li><a href = "/veiwresult">View Results</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+    <li><a><span class="glyphicon glyphicon-user"></span>{{session['username']}}</a></li>
+      <li><a href="/first"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+
+    </ul>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+<h1>{{test_name}}</h1>
+</div>
+
+
+{% for i in range(0,desc_no) %}
+
+<div class="container">
+
+    <div class="row">
+      <div class="col-25">
+        <label>Question {{i+1}}</label>
+      </div>
+      <div class="col-75">
+        <textarea name="Question{{i+1}}" value="" placeholder="Write something.." style="height:200px"></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label>Answer key</label>
+      </div>
+      <div class="col-75">
+        <textarea name="Answer_key{{i+1}}" value="" placeholder="Write something.." style="height:200px"></textarea>
+      </div>
+    </div>
+</div>
+<p>
+</p>
+{% endfor %}
+<div class="container">
+    <div class="row">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</div>
+
+
+
+
+</body>
+</html>

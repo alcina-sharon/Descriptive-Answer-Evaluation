@@ -1,0 +1,158 @@
+{% extends "navigate.jinja2" %}
+
+{% block content %}
+<div class="topnav">
+  <a href="/first">Home</a>
+  <a class="active" href="/register">Register</a>
+  
+</div>
+<div class="jumbotron text-center">
+<h1>Register</h1>
+</div>
+
+ <form action="/page" method="POST">
+ <div class='container' >
+  <table align="center">
+   <tr>
+  <td style="color:black">NAME</td>
+  <td><input type="text" name="name" value="" placeholder="Enter name" required></td>
+  </tr>
+
+  <tr>
+ <td style="color:black">USERNAME</td>
+ <td><input type="text" name="username" value="" placeholder="Enter username" required></td>
+ </tr>
+
+
+     <tr>
+     <td style="color:black">PASSWORD</td>
+     <td><input type="password" name="password" placeholder="Enter password" required></td>
+     </tr>
+
+  <tr>
+  <td style="color:black">EMAIL</td>
+  <td><input type="email" name="email" value="" placeholder="Enter email" required></td>
+  </tr>
+
+{% if session['user'] == "teacher" %}
+  <tr>
+  <td style="color:black">SUBJECT</td>
+  <!--<td><input type="text" name="subject" value="" placeholder="Enter subject" required></td>-->
+  <td>
+  <select name="subject">
+    <option value="science">Science</option>
+    <option value="eng">English</option>
+    <option value="computer">Computer</option>
+    <option value="social">Social</option>
+  </select>
+</td>
+  </tr>
+{% endif %}
+  <tr>
+  <td><input type="submit" value="save" class="btn btn-primary" ></td>
+  <!--on click submit button -->
+  <td><input type="reset" value="reset" class="btn btn-primary" ></td>
+  </tr>
+</div>
+</table>
+
+
+</form>
+
+<form action="/signin" >
+  <div style = "text-align:right; float:right">
+        <b><a href="/signin" style="font-size: 50px">Signin</a></b>
+     </div>
+
+</form>
+{% endblock content %}
+
+
+
+<!--<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+   <title>
+    FORM
+   </title>
+
+<style>
+table,th,td
+  {
+    border:5px lightblue;
+    padding:15px;
+    border collapse:collapse;
+
+  }
+</style>
+</head>
+
+<body style="background-color:white;">
+
+  <div class="jumbotron text-center">
+  <h1>Register</h1>
+  </div>
+
+   <form action="/page" method="POST">
+   <div class='container' >
+    <table align="center">
+     <tr>
+    <td style="color:black">NAME</td>
+    <td><input type="text" name="name" value="" placeholder="Enter name" required></td>
+    </tr>
+
+    <tr>
+   <td style="color:black">USERNAME</td>
+   <td><input type="text" name="username" value="" placeholder="Enter username" required></td>
+   </tr>
+
+
+       <tr>
+       <td style="color:black">PASSWORD</td>
+       <td><input type="password" name="password" placeholder="Enter password" required></td>
+       </tr>
+
+    <tr>
+    <td style="color:black">EMAIL</td>
+    <td><input type="email" name="email" value="" placeholder="Enter email" required></td>
+    </tr>
+
+{% if session['user'] == "teacher" %}
+    <tr>
+    <td style="color:black">SUBJECT</td>
+    <td><input type="text" name="subject" value="" placeholder="Enter subject" required></td>
+    <td>
+    <select name="subject">
+      <option value="science">Science</option>
+      <option value="eng">English</option>
+      <option value="computer">Computer</option>
+      <option value="social">Social</option>
+    </select>
+  </td>
+    </tr>
+{% endif %}
+    <tr>
+    <td><input type="submit" value="save" class="btn btn-primary" ></td>
+
+    <td><input type="reset" value="reset" class="btn btn-primary" ></td>
+    </tr>
+  </div>
+</table>
+
+
+  </form>
+
+  <form action="/signin" >
+    <div style = "text-align:right; float:right">
+          <b><a href="/signin" style="font-size: 50px">Signin</a></b>
+       </div>
+
+  </form>
+
+</body>
+</html>-->

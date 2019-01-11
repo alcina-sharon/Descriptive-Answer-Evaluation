@@ -1,0 +1,33 @@
+{% extends "navigate.jinja2" %}
+
+{% block content %}
+<div class="topnav">
+  <a href="/first">Home</a>
+  <a class="active" href="/signin">Signin</a>
+</div>
+
+<div class="jumbotron text-center">
+<h1>Please Signin</h1>
+</div>
+<form action="/pg" method="POST">
+<div class='container' >
+ <table align="center">
+
+  <tr>
+ <td style="color:black">USERNAME</td>
+ <td><input type="text" name="username_value" value="" placeholder="Enter name" required></td>
+ </tr>
+
+ <td style="color:black">PASSWORD</td>
+ <td><input type="password" name="password_value" placeholder="Enter password" required></td>
+ </tr>
+
+ <tr>
+ <td><input type="submit" value="Signin" class="btn btn-primary" ></td>
+ </tr>
+
+ {% block body %}
+    
+ {% endblock body %}
+
+{% endblock content %}

@@ -1,0 +1,44 @@
+{% extends "navigate.jinja2" %}
+
+{% block content %}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" >Student</a>
+
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href = "/taketest">Take Test</a></li>
+       <li><a href = "/veiwresult">View Results</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+    <li><a><span class="glyphicon glyphicon-user"></span>{{session['username']}}</a></li>
+      <li><a href="/first"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+
+    </ul>
+  </div>
+</nav>
+<form action="/3t" method="POST">
+
+<div class="jumbotron text-center">
+<h1>Choose Test</h1>
+</div>
+<div class='container' >
+ <table align="center">
+<tr>
+<td style="color:black">TEST NAME</td>
+<td>
+<select name="test_name">
+ {% for i in range(0,20) %}
+  <option value="{{tablenew[0][i]}}">{{tablenew[0][i]}}</option>
+  {% endfor %}
+</select>
+</td>
+</tr>
+
+<tr>
+<td><input type="submit" value="Submit" class="btn btn-primary" ></td>
+</tr>
+</table>
+</div>
+{% endblock content %}
